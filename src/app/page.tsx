@@ -1,65 +1,404 @@
-import Image from "next/image";
+
+// 'use client';
+
+// import { useState } from "react";
+// import Navbar from "./component/Navbar";
+// import Signin from "./component/signin";
+// import Signup from "./component/signup";
+// import { FaPeopleGroup } from "react-icons/fa6";
+// import { FaEarthAfrica } from "react-icons/fa6";
+// import Slider from "./component/Slider";
+// import Slid2 from "./component/slid2";
+// import Slie3 from "./component/Slie3";
+// import Slide4 from "./component/Slide4";
+// import Slide5 from "./component/Slide5";
+// import Slide6 from "./component/Slide6";
+// import Slide7 from "./component/slide7";
+
+// export default function Home() {
+//   const [b1,setb1]=useState(false);
+//   const [b2,setb2]=useState(false);
+//     const [people, setPeople] = useState("");
+//   const [lang, setLang] = useState<"en" | "ar">("en");
+//   const [showLogin, setShowLogin] = useState(false);
+//   const [showSignup, setShowSignup] = useState(false);
+//   const show1=()=>{
+//     setb1((prev)=>!prev)
+//     setb2(false)
+//   }
+//   const show2=()=>{
+//     setb2((prev)=>!prev)
+//     setb1(false)
+//   }
+
+//   return (
+//     <div className="bg-white">
+//       <div className="relative w-full h-screen bg-[url('/pic/julia.png')] bg-cover bg-center flex flex-col">
+//       <Navbar lang={lang} setLang={setLang} onLoginClick={() => setShowLogin(true)} onSignupClick={()=>setShowSignup(true)} />
+//       <div className="w-full flex-1 flex items-center justify-center text-white text-center">
+//         <div className="relative ">
+//           <div className="w-[40%] absolute -top-10 -left-28 ">
+//             <button onClick={show1} className={b1?`text-orange-400 bg-white w-[150px] h-[40px]`:`bg-white/30 w-[150px] h-[40px]`}><span><FaEarthAfrica /></span><span>Public Tours</span></button>
+//             <button onClick={show2} className={b2?`text-orange-400 bg-white w-[150px] h-[40px]`:`bg-white/30 w-[150px] h-[40px]`}> <span><FaPeopleGroup /></span><span>Private Tours</span></button>
+//           </div>
+//           <div className={b1||b2?`bg-white/30  backdrop-blur-md rounded-xl p-6 w-full`  :""}>
+//             <div className="w-[80%] relative">
+//   <div
+//     className={`
+//       flex transition-opacity duration-300
+//       ${b1 ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}
+//     `}
+//   >
+//     <div className="bg-white text-black ">
+//           <div className="">
+//                 <FaPeopleGroup />
+//             </div>
+//                 <div className="items-center justify-center w-[255.5px] h-[88px]">
+//                   <h2>Number of people</h2>
+//                 <div>
+//                   <label>Choose number</label>
+//                   <select
+//                       value={people}
+//                       onChange={(e) => setPeople(e.target.value)}
+//                       className="border-[0px]  p-2">
+//                           <option value="1">1 شخص</option>
+//                           <option value="2">2 أشخاص</option>
+//                           <option value="3">3 أشخاص</option>
+//                           <option value="4">4 أشخاص</option>
+//                           <option value="5">5 أشخاص</option>
+//                     </select>
+//                 </div>
+//             </div>
+//           </div>
+//           <div className="bg-white text-black">
+//           <div>
+//                 <FaPeopleGroup />
+//             </div>
+//                 <div className="items-center justify-center w-[255.5px] h-[88px]">
+//                   <h2>Number of people</h2>
+//                 <div>
+//                   <label>Choose number</label>
+//                   <select
+//                       value={people}
+//                       onChange={(e) => setPeople(e.target.value)}
+//                       className="border-[0px] p-2 p-2">
+//                           <option value="1">1 شخص</option>
+//                           <option value="2">2 أشخاص</option>
+//                           <option value="3">3 أشخاص</option>
+//                           <option value="4">4 أشخاص</option>
+//                           <option value="5">5 أشخاص</option>
+//                     </select>
+//                 </div>
+//             </div>
+//           </div>
+//           <div className="bg-white text-black">
+//           <div>
+//                 <FaPeopleGroup />
+//             </div>
+//                 <div className="items-center justify-center w-[255.5px] h-[88px]">
+//                   <h2>Number of people</h2>
+//                 <div>
+//                   <label>Choose number</label>
+//                   <select
+//                       value={people}
+//                       onChange={(e) => setPeople(e.target.value)}
+//                       className="border-[0px] p-2 p-2">
+//                           <option value="1">1 شخص</option>
+//                           <option value="2">2 أشخاص</option>
+//                           <option value="3">3 أشخاص</option>
+//                           <option value="4">4 أشخاص</option>
+//                           <option value="5">5 أشخاص</option>
+//                     </select>
+//                 </div>
+//             </div>
+//           </div>
+//           <div className="bg-white text-black">
+//           <div>
+//                 <FaPeopleGroup />
+//             </div>
+//                 <div className="items-center justify-center w-[255.5px] h-[88px]">
+//                   <h2>Number of people</h2>
+//                 <div>
+//                   <label>Choose number</label>
+//                   <select
+//                       value={people}
+//                       onChange={(e) => setPeople(e.target.value)}
+//                       className="border-[0px] p-2 p-2">
+//                           <option value="1">1 شخص</option>
+//                           <option value="2">2 أشخاص</option>
+//                           <option value="3">3 أشخاص</option>
+//                           <option value="4">4 أشخاص</option>
+//                           <option value="5">5 أشخاص</option>
+//                     </select>
+//                 </div>
+//             </div>
+//           </div>
+//           <div className="bg-white text-black">
+//           <div>
+//                 <FaPeopleGroup />
+//             </div>
+//                 <div className="items-center justify-center w-[255.5px] h-[88px]">
+//                   <h2>Number of people</h2>
+//                 <div>
+//                   <label>Choose number</label>
+//                   <select
+//                       value={people}
+//                       onChange={(e) => setPeople(e.target.value)}
+//                       className="border-[0px] p-2">
+//                           <option value="1">1 شخص</option>
+//                           <option value="2">2 أشخاص</option>
+//                           <option value="3">3 أشخاص</option>
+//                           <option value="4">4 أشخاص</option>
+//                           <option value="5">5 أشخاص</option>
+//                     </select>
+//                 </div>
+//             </div>
+//           </div>
+//   </div>
+
+//   <div
+//     className={`
+//       flex transition-opacity duration-300 absolute top-0 left-0 w-full
+//       ${b2 ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}
+//     `}
+//   >
+         
+//         <div className="bg-white text-black">
+//           <div>
+//                 <FaPeopleGroup />
+//             </div>
+//                 <div className="items-center justify-center w-[255.5px] h-[88px]">
+//                   <h2>Number of people</h2>
+//                 <div>
+//                   <label>Choose number</label>
+//                   <select
+//                       value={people}
+//                       onChange={(e) => setPeople(e.target.value)}
+//                       className="border-[0px] p-2 p-2">
+//                           <option value="1">1 شخص</option>
+//                           <option value="2">2 أشخاص</option>
+//                           <option value="3">3 أشخاص</option>
+//                           <option value="4">4 أشخاص</option>
+//                           <option value="5">5 أشخاص</option>
+//                     </select>
+//                 </div>
+//             </div>
+//           </div>
+//           <div className="bg-white text-black">
+//           <div>
+//                 <FaPeopleGroup />
+//             </div>
+//                 <div className="items-center justify-center w-[255.5px] h-[88px]">
+//                   <h2>Number of people</h2>
+//                 <div>
+//                   <label>Choose number</label>
+//                   <select
+//                       value={people}
+//                       onChange={(e) => setPeople(e.target.value)}
+//                       className="border-[0px] p-2 p-2">
+//                           <option value="1">1 شخص</option>
+//                           <option value="2">2 أشخاص</option>
+//                           <option value="3">3 أشخاص</option>
+//                           <option value="4">4 أشخاص</option>
+//                           <option value="5">5 أشخاص</option>
+//                     </select>
+//                 </div>
+//             </div>
+//           </div>
+//           <div className="bg-white text-black">
+//           <div>
+//                 <FaPeopleGroup />
+//             </div>
+//                 <div className="items-center justify-center w-[255.5px] h-[88px]">
+//                   <h2>Number of people</h2>
+//                 <div>
+//                   <label>Choose number</label>
+//                   <select
+//                       value={people}
+//                       onChange={(e) => setPeople(e.target.value)}
+//                       className="border-[0px] p-2 p-2">
+//                           <option value="1">1 شخص</option>
+//                           <option value="2">2 أشخاص</option>
+//                           <option value="3">3 أشخاص</option>
+//                           <option value="4">4 أشخاص</option>
+//                           <option value="5">5 أشخاص</option>
+//                     </select>
+//                 </div>
+//             </div>
+//           </div>
+//           <div className="bg-white text-black">
+//           <div>
+//                 <FaPeopleGroup />
+//             </div>
+//                 <div className="items-center justify-center w-[255.5px] h-[88px]">
+//                   <h2>Number of people</h2>
+//                 <div>
+//                   <label>Choose number</label>
+//                   <select
+//                       value={people}
+//                       onChange={(e) => setPeople(e.target.value)}
+//                       className="border-[0px] p-2 p-2">
+//                           <option value="1">1 شخص</option>
+//                           <option value="2">2 أشخاص</option>
+//                           <option value="3">3 أشخاص</option>
+//                           <option value="4">4 أشخاص</option>
+//                           <option value="5">5 أشخاص</option>
+//                     </select>
+//                 </div>
+//             </div>
+//           </div>
+//   </div>
+
+// </div>
+
+//           </div>
+//       </div>
+
+//       {showLogin && <Signin lang={lang} setLang={setLang} onClose={() => setShowLogin(false)} />}
+//       {showSignup && <Signup lang={lang} setLang={setLang} onClose={() => setShowSignup(false)} />}
+//     </div>
+//     </div>
+//     <Slider/>
+//     <Slid2 img="/pic/Group2.png"/>
+//     <Slie3/>
+//     <Slide4/>
+//     <Slide5/>
+//     <Slide6/>
+//     <Slide7/>
+//     </div>
+//   );
+// }
+'use client';
+
+import { useState } from "react";
+import Navbar from "./component/Navbar";
+import Signin from "./component/signin";
+import Signup from "./component/signup";
+import { FaPeopleGroup, FaEarthAfrica } from "react-icons/fa6";
+import Slider from "./component/Slider";
+import Slid2 from "./component/slid2";
+import Slie3 from "./component/Slie3";
+import Slide4 from "./component/Slide4";
+import Slide5 from "./component/Slide5";
+import Slide6 from "./component/Slide6";
+import Slide7 from "./component/slide7";
+import Footer from "./component/Footer";
 
 export default function Home() {
+  const [b1,setB1]=useState(false);
+  const [b2,setB2]=useState(false);
+  const [people, setPeople] = useState("1");
+  const [lang, setLang] = useState<"en" | "ar">("en");
+  const [showLogin, setShowLogin] = useState(false);
+  const [showSignup, setShowSignup] = useState(false);
+
+  const show1=()=>{ setB1(!b1); setB2(false); };
+  const show2=()=>{ setB2(!b2); setB1(false); };
+
+  const tourCards = Array(6).fill(0);
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <div className="bg-white">
+      <div className="relative w-full h-screen bg-[url('/pic/julia.png')] bg-cover bg-center flex flex-col">
+
+  {/* Navbar ثابت */}
+  <div className="sticky top-0 z-50">
+    <Navbar
+      lang={lang}
+      setLang={setLang}
+      onLoginClick={() => setShowLogin(true)}
+      onSignupClick={()=>setShowSignup(true)}
+    />
+  </div>
+  {showLogin && <Signin lang={lang} setLang={setLang} onClose={() => {setShowLogin(false),setShowSignup(false)}} />}
+        {showSignup && <Signup lang={lang} setLang={setLang} onClose={() => {setShowLogin(false),setShowSignup(false)}} />}
+  {/* Overlay Buttons فوق الصورة */}
+  <div className="flex-1 flex items-center justify-center text-white text-center px-4">
+    <div className="relative w-full max-w-6xl">
+
+      {/* Buttons */}
+      <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 justify-center mb-4 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
+        <button
+          onClick={show1}
+          className={`flex items-center justify-center gap-2 px-4 py-2 rounded-md font-semibold transition
+            ${b1 ? 'bg-white text-orange-400' : 'bg-white/30 text-black'}`}
+        >
+          <FaEarthAfrica /> Public Tours
+        </button>
+        <button
+          onClick={show2}
+          className={`flex items-center justify-center gap-2 px-4 py-2 rounded-md font-semibold transition
+            ${b2 ? 'bg-white text-orange-400' : 'bg-white/30 text-black'}`}
+        >
+          <FaPeopleGroup /> Private Tours
+        </button>
+      </div>
+
+      {/* Cards Container */}
+      <div className={`${b1 || b2 ? 'bg-white/30 backdrop-blur-md rounded-xl p-4 sm:p-6 w-full mt-64 sm:mt-72 transition-all relative z-10' : ''}`}>
+  <div className="w-[80%] relative mx-auto">
+    <div className={`flex flex-col sm:flex-row sm:flex-wrap gap-4 transition-opacity duration-300 ${b1 ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}>
+      {/* كرّس الـ Cards */}
+      {[...Array(5)].map((_, index) => (
+        <div key={index} className="bg-white text-black flex flex-col items-center justify-center w-full sm:w-[255.5px] h-[88px] p-2 rounded-md">
+          <FaPeopleGroup className="mb-2"/>
+          <h2 className="text-center">Number of people</h2>
+          <div>
+            <label>Choose number</label>
+            <select
+              value={people}
+              onChange={(e) => setPeople(e.target.value)}
+              className="border-[0px] p-2"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              <option value="1">1 شخص</option>
+              <option value="2">2 أشخاص</option>
+              <option value="3">3 أشخاص</option>
+              <option value="4">4 أشخاص</option>
+              <option value="5">5 أشخاص</option>
+            </select>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    {/* نفس الشيء للـ b2 */}
+    <div className={`flex flex-col sm:flex-row sm:flex-wrap gap-4 absolute top-0 left-0 w-full transition-opacity duration-300 ${b2 ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}>
+      {[...Array(5)].map((_, index) => (
+        <div key={index} className="bg-white text-black flex flex-col items-center justify-center w-full sm:w-[255.5px] h-[88px] p-2 rounded-md">
+          <FaPeopleGroup className="mb-2"/>
+          <h2 className="text-center">Number of people</h2>
+          <div>
+            <label>Choose number</label>
+            <select
+              value={people}
+              onChange={(e) => setPeople(e.target.value)}
+              className="border-[0px] p-2"
             >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+              <option value="1">1 شخص</option>
+              <option value="2">2 أشخاص</option>
+              <option value="3">3 أشخاص</option>
+              <option value="4">4 أشخاص</option>
+              <option value="5">5 أشخاص</option>
+            </select>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+      ))}
+    </div>
+  </div>
+</div>
+
+
+    </div>
+  </div>
+</div>
+      <Slider/>
+      <Slid2 img="/pic/Group2.png"/>
+      <Slie3/>
+      <Slide4/>
+      <Slide5/>
+      <Slide6/>
+      <Slide7/>
+      <Footer/>
     </div>
   );
 }
